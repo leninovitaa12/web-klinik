@@ -79,7 +79,7 @@
                                     <td><?php echo e($billing->bill_status ? 'Sudah Bayar' : 'Belum Bayar'); ?></td>
                                     <td>
                                         <a href="https://wa.me/<?php echo e($client->phone); ?>" class="btn btn-success"><i class="fa fa-whatsapp"></i></a>
-                                        <a href="<?php echo e(route('admin.billings.show', $billing->id)); ?>" class="btn btn-primary"><i class="fa fa-info-circle"></i></a>
+                                        <a href="<?php echo e(route('admin.billings.edit', $billing->id)); ?>" class="btn btn-primary"><i class="fa fa-info-circle"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

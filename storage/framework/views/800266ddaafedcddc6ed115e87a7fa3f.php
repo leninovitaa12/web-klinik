@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presensi</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="{{ asset('css/presensi.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/presensi.css')); ?>">
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -21,7 +21,7 @@
     <!-- =============== Navigation ================ -->
     <div class="container">
         <!--Import Sidebar-->
-        @include('layouts.bar')
+        <?php echo $__env->make('layouts.bar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <!-- Main Content -->
         <div id="content">
@@ -87,14 +87,14 @@
                 </thead>
                 <tbody id="riwayatTableBody">
                     <!-- Data riwayat kehadiran akan dimasukkan di sini -->
-                    @foreach ($presensi as $client)
+                    <?php $__currentLoopData = $presensi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{ $client->dataKlien->nik }}</td>
-                            <td>{{ $client->dataKlien->nama }}</td>
-                            <td>{{ $client->dataKlien->alamat }}</td>
-                            <td>{{ $client->dataKlien->no_telepon }}</td>
-                            <td>{{ $client->dataKlien->paket }}</td>
-                            <td>{{ $client->dataKlien->jenis_kelamin }}</td>
+                            <td><?php echo e($client->dataKlien->nik); ?></td>
+                            <td><?php echo e($client->dataKlien->nama); ?></td>
+                            <td><?php echo e($client->dataKlien->alamat); ?></td>
+                            <td><?php echo e($client->dataKlien->no_telepon); ?></td>
+                            <td><?php echo e($client->dataKlien->paket); ?></td>
+                            <td><?php echo e($client->dataKlien->jenis_kelamin); ?></td>
                             <td class="radio-container">
                                 <label><input type="radio" name="sakit" value="sakit"> Sakit</label>
                                 <label><input type="radio" name="izin" value="izin"> Izin</label>
@@ -105,7 +105,7 @@
 
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
@@ -143,3 +143,4 @@
 </body>
 
 </html>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/admin/presensi.blade.php ENDPATH**/ ?>

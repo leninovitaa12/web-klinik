@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\BillingController as AdminBillingController;
+use App\Http\Controllers\admin\PresensiController as AdminPresensiController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\DataClientController as AdminDataClientController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminFormController;
 use App\Http\Controllers\DataClientController as ControllersDataClientController;
 use App\Http\Controllers\LoginController;
+use App\Models\presensi;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -61,6 +63,9 @@ Route::group(['prefix' => 'admin'],function(){
         // Route for Billing
         Route::get('billings', [AdminBillingController::class, 'index'])->name('admin.billings');
         Route::get('billings/edit/{id}', [AdminBillingController::class, 'edit'])->name('admin.billings.edit');
+
+        Route::get('presensi', [AdminPresensiController::class, 'index'])->name('admin.presensi');
+        
     });
 
 

@@ -15,7 +15,9 @@ class DataKlien extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'nama',
+        'nik',
         'nama_wali',
         'alamat',
         'no_telepon',

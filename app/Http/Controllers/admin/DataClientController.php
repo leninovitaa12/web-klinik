@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Billing;
 use Illuminate\Http\Request;
 //import model DataKlien
 use App\Models\DataKlien;
@@ -57,6 +58,7 @@ class DataClientController
         $request->validate([
             'nama'         => 'required|min:5', // nama yang dimasukan minimal 5 karakter
             'nama_wali'    => 'required|min:5',
+            'nik'          => 'required|min:16',
             'alamat'       => 'required|min:15',
             'no_telepon'    => [
                 'required',
@@ -67,14 +69,22 @@ class DataClientController
             'jenis_kelamin'=> 'required'
         ]);
 
+
+
         //mengambil data dari model data klien
         DataKlien::create([
+            'id'           => $request->nik,
             'nama'         => $request->nama,
+            'nik'          => $request->nik,
             'nama_wali'    => $request->nama_wali,
             'alamat'       => $request->alamat,
             'no_telepon'   => $request->no_telepon,
             'paket'        => $request->paket,
             'jenis_kelamin'=> $request->jenis_kelamin,
+        ]);
+
+        Billing::create([
+            'id_client'    => $request->nik,
         ]);
 
         //redirect to index // menampilkan laman index
@@ -106,6 +116,7 @@ class DataClientController
     {
         $request->validate([
             'nama'         => 'required|min:5', // nama yang dimasukan minimal 5 karakter
+            'nik'          => 'required|unique:data_kliens,nik|digits:16',
             'nama_wali'    => 'required|min:5',
             'alamat'       => 'required|min:15',
             'no_telepon'    => [
@@ -124,6 +135,7 @@ class DataClientController
             //update product without image
             $data_kliens->update([
                 'nama'         => $request->nama,
+                'nik'          => $request->nik,
                 'nama_wali'    => $request->nama_wali,
                 'alamat'       => $request->alamat,
                 'no_telepon'   => $request->no_telepon,

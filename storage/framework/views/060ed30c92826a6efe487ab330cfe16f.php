@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Klien</title>
-    <link href="{{ asset('css/client.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('css/client.css')); ?>" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -14,7 +14,7 @@
 <body>
     <div class="container-cs">
         <!--Import Sidebar-->
-        @include('layouts.bar')
+        <?php echo $__env->make('layouts.bar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- CONTENT -->
         <section id="content">
             <nav>
@@ -32,7 +32,7 @@
                             <h5 class="mb-0">Cari :</h5>
                             <input type="text" placeholder="Cari Klien..." style="margin-left:5px; border-radius:10px;">
                         </div>
-                        <a class="btn btn-custom" style="background-color: #447abc; padding: 10px; color: white; font-weight: 600;" href="{{ route('admin.create') }}">Tambah</a>
+                        <a class="btn btn-custom" style="background-color: #447abc; padding: 10px; color: white; font-weight: 600;" href="<?php echo e(route('admin.create')); ?>">Tambah</a>
                         <button class="btn btn-tambah"></button>
                     </div>
                     <table class="table-klien">
@@ -49,24 +49,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($data_kliens as $dataklien)
+                            <?php $__empty_1 = true; $__currentLoopData = $data_kliens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dataklien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <tr>
-                                <td>{{ $dataklien->nik }}</td>
-                                <td>{{ $dataklien->nama }}</td>
-                                <td>{{ $dataklien->nama_wali }}</td>
-                                <td>{{ $dataklien->alamat }}</td>
-                                <td>{{ $dataklien->no_telepon }}</td>
-                                <td>{{ $dataklien->paket }}</td>
-                                <td>{{ $dataklien->jenis_kelamin }}</td>
+                                <td><?php echo e($dataklien->nik); ?></td>
+                                <td><?php echo e($dataklien->nama); ?></td>
+                                <td><?php echo e($dataklien->nama_wali); ?></td>
+                                <td><?php echo e($dataklien->alamat); ?></td>
+                                <td><?php echo e($dataklien->no_telepon); ?></td>
+                                <td><?php echo e($dataklien->paket); ?></td>
+                                <td><?php echo e($dataklien->jenis_kelamin); ?></td>
                                 <td class="text-center">
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.destroy', $dataklien->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
+                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="<?php echo e(route('admin.destroy', $dataklien->id)); ?>" method="POST">
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('DELETE'); ?>
                                         <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                     </form>
                                 </td>
                             </tr>
-                            @empty
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                             <tr>
                                 <td colspan="8" class="text-center">
                                     <div class="alert alert-danger">
@@ -74,31 +74,33 @@
                                     </div>
                                 </td>
                             </tr>
-                            @endforelse
+                            <?php endif; ?>
                         </tbody>
                     </table>
-                    {{ $data_kliens->links() }}
+                    <?php echo e($data_kliens->links()); ?>
+
                 </div>
             </div>
         </section>
         <script>
-            @if(session('success'))
+            <?php if(session('success')): ?>
                 Swal.fire({
                     icon: "success",
                     title: "BERHASIL",
-                    text: "{{ session('success') }}",
+                    text: "<?php echo e(session('success')); ?>",
                     showConfirmButton: false,
                     timer: 2000
                 });
-            @elseif(session('error'))
+            <?php elseif(session('error')): ?>
                 Swal.fire({
                     icon: "error",
                     title: "GAGAL!",
-                    text: "{{ session('error') }}",
+                    text: "<?php echo e(session('error')); ?>",
                     showConfirmButton: false,
                     timer: 2000
                 });
-            @endif
+            <?php endif; ?>
         </script>
     </body>
 </html>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/admin/client.blade.php ENDPATH**/ ?>

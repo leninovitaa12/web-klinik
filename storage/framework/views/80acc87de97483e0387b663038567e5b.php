@@ -6,13 +6,13 @@
     </a>
     <ul class="side-menu top">
         <li class="active">
-            <a href="{{ route("admin.dashboard") }}">
+            <a href="<?php echo e(route("admin.dashboard")); ?>">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="text">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="{{ route('admin.client') }}">
+            <a href="<?php echo e(route('admin.client')); ?>">
                 <i class='bx bxs-group' ></i>
                 <span class="text">Client</span>
             </a>
@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('admin.billings') }}">
+            <a href="<?php echo e(route('admin.billings')); ?>">
                 <i class='bx bxs-dollar-circle'></i>
                 <span class="text">Billing</span>
             </a>
@@ -41,7 +41,7 @@
         </li>
          End -->
         <li>
-            <a href="{{ route('admin.logout') }}" class="logout">
+            <a href="<?php echo e(route('admin.logout')); ?>" class="logout">
                 <i class='bx bxs-log-out-circle'></i>
                 <span class="text">Logout</span>
             </a>
@@ -549,3 +549,4 @@ window.addEventListener('resize', function () {
 
 
 </script>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/layouts/bar.blade.php ENDPATH**/ ?>

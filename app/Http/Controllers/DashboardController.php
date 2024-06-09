@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function appointment(){
         return view('appointment');
     }
-    public function formappointment(){
-        return view('form_appointment');
-    }
+    // public function formappointment(){
+    //     return view('form_appointment');
+    // }
 }

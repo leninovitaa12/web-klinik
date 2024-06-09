@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\admin\BillingController as AdminBillingController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\DataClientController as AdminDataClientController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
+
+use App\Http\Controllers\BillingController;
+
 use App\Http\Controllers\DataClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminFormController;
@@ -54,8 +58,10 @@ Route::group(['prefix' => 'admin'],function(){
         Route::post('data_client', [AdminDataClientController::class, 'store'])->name('admin.store');
         Route::delete('hapus_client/{id}', [AdminDataClientController::class, 'destroy'])->name('admin.destroy');
 
+        // Route for Billing
+        Route::get('billings', [AdminBillingController::class, 'index'])->name('admin.billings');
+        Route::get('billings/edit/{id}', [AdminBillingController::class, 'edit'])->name('admin.billings.edit');
     });
-
 
 
 });

@@ -12,16 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('data_kliens', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id'); // Menggunakan bigIncrements untuk id auto-increment
             $table->string('nama');
+            $table->bigInteger('nik')->unique();
             $table->string('nama_wali');
             $table->string('alamat');
             $table->string('no_telepon');
-            $table->string('paket');
-            $table->string('jenis_kelamin');
-            //Waktu Pembuatan
+            $table->enum('paket', ['1', '2', '3', 'home visit']);
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+            // Waktu Pembuatan
             $table->timestamps();
         });
+
     }
 
     /**

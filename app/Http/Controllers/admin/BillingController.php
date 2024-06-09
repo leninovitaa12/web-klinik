@@ -37,7 +37,7 @@ class BillingController
     public function edit(string $id): View
     {
         $clients = Billing::findOrFail($id);
-        return view('admin.billings.form_billing', compact('clients'));
+        return view('admin.billings.edit_billing', compact('clients'));
     }
 
     public function update(Request $request, Billing $billing): RedirectResponse
@@ -48,14 +48,12 @@ class BillingController
         ]);
 
         $billing->update($request->all());
-
         return redirect()->route('admin.billings.index')->with('success', 'Billing berhasil diperbarui');
     }
 
     public function destroy(Billing $billing): RedirectResponse
     {
         $billing->delete();
-
         return redirect()->route('admin.billings.index')->with('success', 'Billing berhasil dihapus');
     }
 
@@ -74,4 +72,5 @@ class BillingController
 
         return redirect()->route('admin.billings.index')->with('success', 'Status billing berhasil diubah');
     }
+
 }

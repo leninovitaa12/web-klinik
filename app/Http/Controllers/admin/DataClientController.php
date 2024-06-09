@@ -6,7 +6,7 @@ use App\Models\Billing;
 use Illuminate\Http\Request;
 //import model DataKlien
 use App\Models\DataKlien;
-
+use App\Models\presensi;
 //import return type View
 use Illuminate\View\View;
 
@@ -84,6 +84,10 @@ class DataClientController
         ]);
 
         Billing::create([
+            'id_client'    => $request->nik,
+        ]);
+
+        presensi::create([
             'id_client'    => $request->nik,
         ]);
 

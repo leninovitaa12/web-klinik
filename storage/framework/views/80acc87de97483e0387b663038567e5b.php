@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="<?php echo e(route('admin.presensi')); ?>">
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Presensi</span>
             </a>

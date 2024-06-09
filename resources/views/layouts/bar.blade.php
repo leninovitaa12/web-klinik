@@ -18,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('admin.presensi') }}">
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Presensi</span>
             </a>

@@ -29,8 +29,8 @@
 
         <div class="container-cs">
 
-            <!--Import Sidebar-->
-            {{-- @include('layouts.bar') --}}
+            {{-- <!--Import Sidebar-->
+            @include('layouts.bar') --}}
 
             <div class="content">
                 <div class="anakcontent">
@@ -46,80 +46,83 @@
                                             </h1>
                                         </div>
                                         <form action="{{ route('admin.store') }}" method="POST" >
-
                                             @csrf
+                                            <div class="row">
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                    <label class="font-weight-bold">Nama</label>
-                                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" placeholder="Masukkan Nama">
+                                                <div class="col-md-12">
+                                                    <div class="form-group mb-3">
+                                                        <label class="font-weight-bold">Nama</label>
+                                                        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" placeholder="Masukkan Nama">
+                                                        @error('nama')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
 
-                                                    <!-- error message untuk title -->
-                                                    @error('nama')
-                                                        <div class="alert alert-danger mt-2">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group mb-3">
+                                                        <label class="font-weight-bold">NIK</label>
+                                                        <input type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK">
+
+                                                        @error('nik')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group mb-3">
+                                                        <label class="font-weight-bold">Nama Wali</label>
+                                                        <input type="text" class="form-control @error('nama_wali') is-invalid @enderror" name="nama_wali" value="{{ old('nama_wali') }}" placeholder="Masukkan Nama Wali">
+                                                        @error('nama_wali')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                    <label class="font-weight-bold">Nama Wali</label>
-                                                    <input type="text" class="form-control @error('nama_wali') is-invalid @enderror" name="nama_wali" value="{{ old('nama_wali') }}" placeholder="Masukkan Nama Wali">
-
-                                                    <!-- error message untuk title -->
-                                                    @error('nama_wali')
-                                                        <div class="alert alert-danger mt-2">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group mb-3">
+                                                        <label class="font-weight-bold">Alamat</label>
+                                                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat Anda">
+                                                        @error('alamat')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group mb-3">
+                                                        <label class="font-weight-bold">No telepon</label>
+                                                        <input type="text" class="form-control @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ old('no_telepon') }}" placeholder="Masukkan No Telepon Anda">
+                                                        @error('no_telepon')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                    <label class="font-weight-bold">Alamat</label>
-                                                    <input  type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat Anda"></input>
-
-                                                    <!-- error message untuk description -->
-                                                    @error('alamat')
-                                                        <div class="alert alert-danger mt-2">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                    <label class="font-weight-bold">No telepon</label>
-                                                    <input  type="text" class="form-control @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ old('no_telepon') }}" placeholder="Masukkan No Telepon Anda"></input>
-
-                                                    <!-- error message untuk description -->
-                                                    @error('no_telepon')
-                                                        <div class="alert alert-danger mt-2">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group mb-3">
-                                                <label class="font-weight-bold">Paket</label>
-                                                <select class="form-control @error('paket') is-invalid @enderror" name="paket" value="{{ old('paket') }}">
-                                                    <option>Pilih Paket Anda</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                </select>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group mb-3">
+                                                        <label class="font-weight-bold">Paket</label>
+                                                        <select class="form-control @error('paket') is-invalid @enderror" name="paket" value="{{ old('paket') }}">
+                                                            <option>Pilih Paket Anda</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="home visit">home visit</option>
+                                                        </select>
                                                 <!-- error message untuk description -->
                                                 @error('paket')
                                                     <div class="alert alert-danger mt-2">

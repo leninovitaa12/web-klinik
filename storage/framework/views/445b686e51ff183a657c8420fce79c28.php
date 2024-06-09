@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments</title>
-    <link rel="stylesheet" href="{{ asset('css/appointment.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/appointment.css')); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -58,3 +58,4 @@
     });
 </script>
 </html>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/appointment.blade.php ENDPATH**/ ?>

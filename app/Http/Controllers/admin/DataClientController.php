@@ -54,11 +54,12 @@ class DataClientController
      */
     public function store(Request $request): RedirectResponse
     {
+
         //validate form
         $request->validate([
             'nama'         => 'required|min:5', // nama yang dimasukan minimal 5 karakter
-            'nama_wali'    => 'required|min:5',
             'nik'          => 'required|min:16',
+            'nama_wali'    => 'required|min:5',
             'alamat'       => 'required|min:15',
             'no_telepon'    => [
                 'required',
@@ -74,14 +75,15 @@ class DataClientController
         //mengambil data dari model data klien
         DataKlien::create([
             'id'           => $request->nik,
-            'nama'         => $request->nama,
             'nik'          => $request->nik,
+            'nama'         => $request->nama,
             'nama_wali'    => $request->nama_wali,
             'alamat'       => $request->alamat,
             'no_telepon'   => $request->no_telepon,
             'paket'        => $request->paket,
             'jenis_kelamin'=> $request->jenis_kelamin,
         ]);
+
 
         Billing::create([
             'id_client'    => $request->nik,
@@ -106,7 +108,7 @@ class DataClientController
             $data_kliens = DataKlien::findOrFail($id);
 
             //menampilkan laman edit data yang datanya diambil dari data klien
-            return view('admin_klien.edit_data', compact('data_kliens'));
+            return view('admin.edit_client', compact('data_kliens'));
         }
 
         /**
@@ -118,9 +120,10 @@ class DataClientController
      */
     public function update(Request $request, $id): RedirectResponse
     {
+
         $request->validate([
             'nama'         => 'required|min:5', // nama yang dimasukan minimal 5 karakter
-            'nik'          => 'required|unique:data_kliens,nik|digits:16',
+            'nik'          => 'required|min:16',
             'nama_wali'    => 'required|min:5',
             'alamat'       => 'required|min:15',
             'no_telepon'    => [
@@ -131,6 +134,7 @@ class DataClientController
             'paket'        => 'required',
             'jenis_kelamin'=> 'required'
         ]);
+
 
         //mendapatkan ID dari tabel
         $data_kliens = DataKlien::findOrFail($id);

@@ -69,8 +69,8 @@
                                 Rp. <?php echo e(number_format($nominal, 0, ',', '.')); ?>
 
                             </td>
-                            <td><?php echo e($client->is_active ? 'Aktif' : 'Tidak Aktif'); ?></td>
-                            <td><?php echo e($client->bill_status ? 'Sudah Bayar' : 'Belum Bayar'); ?></td>
+                            <td><?php echo e($client->is_active); ?></td>
+                            <td><?php echo e($client->bill_status); ?></td>
                             <td>
                                 <a href="https://wa.me/<?php echo e($client->dataKlien->phone); ?>" class="btn btn-success"><i
                                         class="fa fa-whatsapp"></i></a>

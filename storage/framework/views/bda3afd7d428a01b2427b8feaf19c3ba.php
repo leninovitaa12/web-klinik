@@ -23,7 +23,7 @@
 <body>
 
     <div class="d-flex">
-        @include('layouts.bar')
+        <?php echo $__env->make('layouts.bar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
@@ -42,13 +42,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($billings as $client)
+                    <?php $__currentLoopData = $billings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{ $client->dataKlien->nama }}</td>
-                            <td>{{ $client->dataKlien->nik }}</td>
-                            <td>{{ $client->dataKlien->paket }}</td>
+                            <td><?php echo e($client->dataKlien->nama); ?></td>
+                            <td><?php echo e($client->dataKlien->nik); ?></td>
+                            <td><?php echo e($client->dataKlien->paket); ?></td>
                             <td>
-                                @php
+                                <?php
                                     switch ($client->dataKlien->paket) {
                                         case 1:
                                             $nominal = 100000;
@@ -65,19 +65,20 @@
                                         default:
                                             $nominal = 0;
                                     }
-                                @endphp
-                                Rp. {{ number_format($nominal, 0, ',', '.') }}
+                                ?>
+                                Rp. <?php echo e(number_format($nominal, 0, ',', '.')); ?>
+
                             </td>
-                            <td>{{ $client->is_active}}</td>
-                            <td>{{ $client->bill_status}}</td>
+                            <td><?php echo e($client->is_active); ?></td>
+                            <td><?php echo e($client->bill_status); ?></td>
                             <td>
-                                <a href="https://wa.me/{{ $client->dataKlien->phone }}" class="btn btn-success"><i
+                                <a href="https://wa.me/<?php echo e($client->dataKlien->phone); ?>" class="btn btn-success"><i
                                         class="fa fa-whatsapp"></i></a>
-                                <a href="{{ route('admin.billings.edit', $client->id) }}" class="btn btn-primary"><i
+                                <a href="<?php echo e(route('admin.billings.edit', $client->id)); ?>" class="btn btn-primary"><i
                                         class="fa fa-info-circle"></i></a>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -89,3 +90,4 @@
 </body>
 
 </html>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\admin\billings\billing.blade.php ENDPATH**/ ?>

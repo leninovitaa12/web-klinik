@@ -49,25 +49,25 @@
                                             EDIT BILLING
                                         </h1>
                                     </div>
-                                    <form action="<?php echo e(route('admin.update', $client->id)); ?>" method="POST">
+                                    <form action="<?php echo e(route('admin.billings.proses_edit', $billing->id)); ?>" method="POST">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('PUT'); ?>
                                         <div class="row">
                                             <!-- Hidden Input for Uneditable Fields -->
-                                            <input type="hidden" name="nik" value="<?php echo e($client->dataKlien->nik); ?>">
-                                            <input type="hidden" name="nama_wali" value="<?php echo e($client->dataKlien->nama_wali); ?>">
-                                            <input type="hidden" name="alamat" value="<?php echo e($client->dataKlien->alamat); ?>">
-                                            <input type="hidden" name="no_telepon" value="<?php echo e($client->dataKlien->no_telepon); ?>">
-                                            <input type="hidden" name="paket" value="<?php echo e($client->dataKlien->paket); ?>">
-                                            <input type="hidden" name="jenis_kelamin" value="<?php echo e($client->dataKlien->jenis_kelamin); ?>">
+                                            <input type="hidden" name="nik" value="<?php echo e($billing->dataKlien->nik); ?>">
+                                            <input type="hidden" name="nama_wali" value="<?php echo e($billing->dataKlien->nama_wali); ?>">
+                                            <input type="hidden" name="alamat" value="<?php echo e($billing->dataKlien->alamat); ?>">
+                                            <input type="hidden" name="no_telepon" value="<?php echo e($billing->dataKlien->no_telepon); ?>">
+                                            <input type="hidden" name="paket" value="<?php echo e($billing->dataKlien->paket); ?>">
+                                            <input type="hidden" name="jenis_kelamin" value="<?php echo e($billing->dataKlien->jenis_kelamin); ?>">
                                         </div>
                                         <div class="row">
                                             <!-- Is Active -->
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label class="font-weight-bold">Is Active</label><br>
-                                                    <input type="radio" name="is_active" value="Aktif" <?php echo e($client->is_active == 'Aktif' ? 'checked' : ''); ?>> Aktif<br>
-                                                    <input type="radio" name="is_active" value="Tidak Aktif" <?php echo e($client->is_active == 'Tidak Aktif' ? 'checked' : ''); ?>> Tidak Aktif
+                                                    <input type="radio" name="is_active" value="Aktif" <?php echo e($billing->is_active == 'Aktif' ? 'checked' : ''); ?>> Aktif<br>
+                                                    <input type="radio" name="is_active" value="Tidak Aktif" <?php echo e($billing->is_active == 'Tidak Aktif' ? 'checked' : ''); ?>> Tidak Aktif
                                                 </div>
                                             </div>
 
@@ -75,8 +75,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label class="font-weight-bold">Bill Status</label><br>
-                                                    <input type="radio" name="bill_status" value="Sudah Bayar" <?php echo e($client->bill_status == 'Sudah Bayar' ? 'checked' : ''); ?>> Sudah Bayar<br>
-                                                    <input type="radio" name="bill_status" value="Belum Bayar" <?php echo e($client->bill_status == 'Belum Bayar' ? 'checked' : ''); ?>> Belum Bayar
+                                                    <input type="radio" name="bill_status" value="Sudah Bayar" <?php echo e($billing->bill_status == 'Sudah Bayar' ? 'checked' : ''); ?>> Sudah Bayar<br>
+                                                    <input type="radio" name="bill_status" value="Belum Bayar" <?php echo e($billing->bill_status == 'Belum Bayar' ? 'checked' : ''); ?>> Belum Bayar
                                                 </div>
                                             </div>
                                         </div>
@@ -98,4 +98,4 @@
 </body>
 
 </html>
-<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/admin/billings/edit_billing.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\admin\billings\edit_billing.blade.php ENDPATH**/ ?>

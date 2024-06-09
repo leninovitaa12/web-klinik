@@ -8,9 +8,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+        
             <!-- Boxicons -->
-        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <!-- My CSS -->
 
@@ -27,29 +27,17 @@
 		        <!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-
+			<a href="#" class="nav-link">Data Client</a>
 		</nav>
             <div class="content">
                 <div class="anakcontent">
-                    <div style="margin-top: 50px;"></div>
-                    <div style="background-color: #475ffd;  width:40%; margin:auto;  padding: 20px 40px; border-radius: 10px;">
-                        <h1 style="text-align: center; font-weight:bold; color:black; ">Data Klien</h1>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                        <div class="d-flex align-items-center">
-                            <h5 class="mb-0">Cari :</h5>
-                            <input type="text" placeholder="  Cari Klien..." style="margin-left:5px; border-radius:10px;">
-                        </div>
-                        
-                        <a class="btn btn-custom " style="background-color:  #447abc;  padding: 10px;
-                        color: white; font-weight: 600;" href="<?php echo e(route('admin.create')); ?>">Tambah</a>
-                        <button class="btn btn-tambah">
-                        </button>
+                    <div style="display: flex; justify-content: space-between; height:45px; margin-top: 50px;">
+                        <a class="btn btn-custom fs-6 " style="background-color:  #447abc;  padding: 10px;
+                        color: white; " href="<?php echo e(route('admin.create')); ?>"><i class="bi bi-file-plus"></i> Tambah</a>
                     </div>
 
                 <table class="table-klien">
-                    <thead>
+                    <thead class="text-white">
                         <tr>
                             <th>Nama</th>
                             <th>Nama Wali</th>
@@ -74,13 +62,11 @@
                             <td><?php echo e($dataklien->jenis_kelamin); ?></td>
                             <td class="text-center">
                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="<?php echo e(route('admin.destroy', $dataklien->id)); ?>" method="POST">
-                                    
+                                    <a href="<?php echo e(route('admin.edit', $dataklien->id)); ?>" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i></a>
                                     <?php echo csrf_field(); ?>
                                     <?php echo method_field('DELETE'); ?>
-                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
                                 </form>
-
-                                
                             </td>
                         </tr>
                         <!-- Isi data lainnya di sini -->
@@ -126,4 +112,4 @@
         </script>
     </body>
 </html>
-<?php /**PATH D:\Program File\htdocs\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/admin/client.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\admin\client.blade.php ENDPATH**/ ?>

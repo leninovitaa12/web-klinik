@@ -18,17 +18,18 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="<?php echo e(route('admin.presensi')); ?>">
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Presensi</span>
             </a>
         </li>
         <li>
-            <a href="#">
-            <i class='bx bxs-dollar-circle' ></i>
-            <span class="text">Billing</span>
-        </a>
+            <a href="<?php echo e(route('admin.billings')); ?>">
+                <i class='bx bxs-dollar-circle'></i>
+                <span class="text">Billing</span>
+            </a>
         </li>
+
     </ul>
     <ul class="side-menu">
         <!-- Bentar
@@ -548,4 +549,4 @@ window.addEventListener('resize', function () {
 
 
 </script>
-<?php /**PATH D:\Program File\htdocs\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/layouts/bar.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\layouts\bar.blade.php ENDPATH**/ ?>

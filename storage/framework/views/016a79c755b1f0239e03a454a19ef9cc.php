@@ -10,12 +10,13 @@
 	<!-- My CSS -->
 
 
-	<title>Dashboard Admin</title>
+	<title>Dashboard</title>
 </head>
 <body>
 
-    <!--Import Sidebar-->
-    <?php echo $__env->make('layouts.bar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+	<!--Import Sidebar-->
+    <?php echo $__env->make('layouts.bar_user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 	<!-- CONTENT -->
 	<section id="content">
@@ -48,24 +49,17 @@
 
         <ul class="box-info">
             <li>
-                <i class='bx bxs-calendar-check' ></i>
-                <span class="text">
-                    <h3></h3>
-                    <p>Presensi</p>
-                </span>
-            </li>
-            <li>
                 <i class='bx bxs-group' ></i>
                 <span class="text">
                     <h3></h3>
-                    <p>Jumlah Client</p>
+                    <p>Buat Janji Temu</p>
                 </span>
             </li>
             <li>
                 <i class='bx bxs-dollar-circle' ></i>
                 <span class="text">
                     <h3></h3>
-                    <p>Billing</p>
+                    <p>Cek Tagihan</p>
                 </span>
             </li>
         </ul>
@@ -77,7 +71,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Data Client</th>
+                            <th>Data</th>
                         </tr>
                     </thead>
 
@@ -91,6 +85,7 @@
 	<!-- CONTENT -->
 
 
+	<script src="<?php echo e(asset('dashboard/js/main.js')); ?>"></script>
 </body>
 </html>
-<?php /**PATH D:\Program File\htdocs\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\dashboard.blade.php ENDPATH**/ ?>

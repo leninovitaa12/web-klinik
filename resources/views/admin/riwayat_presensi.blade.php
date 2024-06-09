@@ -26,7 +26,7 @@
                         <td>{{ $presensi->keterangan }}</td>
                         <td>{{ $presensi->created_at }}</td>
                     </tr>
-                @endforeach4
+                @endforeach
             </tbody>
         </table>
     </div>

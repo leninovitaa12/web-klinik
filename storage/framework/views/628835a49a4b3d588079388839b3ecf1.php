@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login User</title>
+        <title>Login Admin</title>
         <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     </head>
     <body class="bg-light">
@@ -34,11 +34,11 @@
                                         <?php endif; ?>
 
                                         <div class="mb-5">
-                                            <h4 class="text-center">Login Disini</h4>
+                                            <h4 class="text-center">Login Admin Here</h4>
                                         </div>
                                     </div>
                                 </div>
-                                <form action="<?php echo e(route('account.authenticate')); ?>" method="POST">
+                                <form action="<?php echo e(route('admin.authenticate')); ?>" method="POST">
                                     <?php echo csrf_field(); ?>
                                     <div class="row gy-3 overflow-hidden">
                                         <div class="col-12">
@@ -89,19 +89,11 @@ unset($__errorArgs, $__bag); ?>
                                         </div>
                                         <div class="col-12">
                                             <div class="d-grid">
-                                                <button class="btn bsb-btn-xl btn-primary py-3" type="submit">Login</button>
+                                                <button class="btn bsb-btn-xl btn-primary py-3" type="submit">Log in now</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <hr class="mt-5 mb-4 border-secondary-subtle">
-                                        <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-center">
-                                            <a href="<?php echo e(route('account.register')); ?>" class="link-secondary text-decoration-none">Belum punya Akun?</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,4 +103,4 @@ unset($__errorArgs, $__bag); ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>
-<?php /**PATH D:\Program File\htdocs\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/login.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\admin\login.blade.php ENDPATH**/ ?>

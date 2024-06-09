@@ -58,14 +58,17 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('data_client', [AdminDataClientController::class, 'index'])->name('admin.client');
         Route::get('form_client', [AdminDataClientController::class, 'create'])->name('admin.create');
         Route::post('data_client', [AdminDataClientController::class, 'store'])->name('admin.store');
+        Route::get('edit_client/{id}', [AdminDataClientController::class, 'edit'])->name('admin.edit');
         Route::delete('hapus_client/{id}', [AdminDataClientController::class, 'destroy'])->name('admin.destroy');
+        Route::post('update_client/{id}', [AdminDataClientController::class, 'update'])->name('admin.update');
 
         // Route for Billing
         Route::get('billings', [AdminBillingController::class, 'index'])->name('admin.billings');
         Route::get('billings/edit/{id}', [AdminBillingController::class, 'edit'])->name('admin.billings.edit');
+        Route::put('billings/proses_edit/{id}', [AdminBillingController::class, 'update'])->name('admin.billings.proses_edit');
 
         Route::get('presensi', [AdminPresensiController::class, 'index'])->name('admin.presensi');
-        
+
     });
 
 

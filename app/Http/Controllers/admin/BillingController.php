@@ -36,19 +36,21 @@ class BillingController
 
     public function edit(string $id): View
     {
-        $clients = Billing::findOrFail($id);
-        return view('admin.billings.edit_billing', compact('clients'));
+        $billing = Billing::findOrFail($id);
+        return view('admin.billings.edit_billing', compact('billing'));
     }
 
-    public function update(Request $request, Billing $billing): RedirectResponse
+    public function update(Request $request, string $id): RedirectResponse
     {
+        // dd($request->all());
         $request->validate([
             'bill_status' => 'required',
             'is_active' => 'required',
         ]);
+        $billing = Billing::findOrFail($id);
 
         $billing->update($request->all());
-        return redirect()->route('admin.billings.index')->with('success', 'Billing berhasil diperbarui');
+        return redirect()->route('admin.billings')->with('success', 'Billing berhasil diperbarui');
     }
 
     public function destroy(Billing $billing): RedirectResponse

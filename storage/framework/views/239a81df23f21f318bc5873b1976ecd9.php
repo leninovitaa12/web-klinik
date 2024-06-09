@@ -302,4 +302,4 @@
 
 </body>
 </html>
-<?php /**PATH D:\Program File\htdocs\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views/landing.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\resources\views\landing.blade.php ENDPATH**/ ?>

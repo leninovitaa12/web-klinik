@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Form Klien</title>
-        <link href="{{ asset('css/adminform.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/client.css') }}" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -29,9 +29,6 @@
 
         <div class="container-cs">
 
-            <!--Import Sidebar-->
-            {{-- @include('layouts.bar') --}}
-
             <div class="content">
                 <div class="anakcontent">
                     <div class="container mt-5 mb-5">
@@ -40,20 +37,20 @@
                                 <div class="card border-0 shadow-sm rounded" style="background-color:  #7ea1cd; border-radius:10px;">
                                     <div class="card-body" >
 
-                                        <div class="d-flex justify-content-center pt-5 mt-1 mb-4">
+                                        {{-- <div class="d-flex justify-content-center pt-5 mt-1 mb-4">
                                             <h1 class="head-klien fs-2 fw-bold">
-                                                FORMULIR KLIEN
+                                                EDIT DATA KLIEN
                                             </h1>
-                                        </div>
-                                        <form action="{{ route('admin.store') }}" method="POST" >
+                                        </div> --}}
+                                        <form action="{{ route('admin.update', $data_kliens->id) }}" method="POST" >
 
                                             @csrf
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group mb-3">
+                                                <div class="form-group">
                                                     <label class="font-weight-bold">Nama</label>
-                                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" placeholder="Masukkan Nama">
+                                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama',$data_kliens->nama) }}" placeholder="Masukkan Nama">
 
                                                     <!-- error message untuk title -->
                                                     @error('nama')
@@ -67,9 +64,9 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group mb-3">
+                                                <div class="form-group">
                                                     <label class="font-weight-bold">NIK</label>
-                                                    <input type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK">
+                                                    <input type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik',$data_kliens->nik) }}" placeholder="Masukkan NIK">
 
                                                     <!-- error message untuk title -->
                                                     @error('nama_wali')
@@ -80,9 +77,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group mb-3">
+                                                <div class="form-group">
                                                     <label class="font-weight-bold">Nama Wali</label>
-                                                    <input type="text" class="form-control @error('nama_wali') is-invalid @enderror" name="nama_wali" value="{{ old('nama_wali') }}" placeholder="Masukkan Nama Wali">
+                                                    <input type="text" class="form-control @error('nama_wali') is-invalid @enderror" name="nama_wali" value="{{ old('nama_wali',$data_kliens->nama_wali) }}" placeholder="Masukkan Nama Wali">
 
                                                     <!-- error message untuk title -->
                                                     @error('nama_wali')
@@ -97,9 +94,9 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group mb-3">
+                                                <div class="form-group">
                                                     <label class="font-weight-bold">Alamat</label>
-                                                    <input  type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat Anda"></input>
+                                                    <input  type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat',$data_kliens->alamat) }}" placeholder="Masukkan Alamat Anda"></input>
 
                                                     <!-- error message untuk description -->
                                                     @error('alamat')
@@ -110,9 +107,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group mb-3">
+                                                <div class="form-group">
                                                     <label class="font-weight-bold">No telepon</label>
-                                                    <input  type="text" class="form-control @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ old('no_telepon') }}" placeholder="Masukkan No Telepon Anda"></input>
+                                                    <input  type="text" class="form-control @error('no_telepon') is-invalid @enderror" name="no_telepon" value="{{ old('no_telepon',$data_kliens->no_telepon) }}" placeholder="Masukkan No Telepon Anda"></input>
 
                                                     <!-- error message untuk description -->
                                                     @error('no_telepon')
@@ -127,10 +124,10 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group mb-3">
+                                            <div class="form-group">
                                                 <label class="font-weight-bold">Paket</label>
-                                                <select class="form-control @error('paket') is-invalid @enderror" name="paket" value="{{ old('paket') }}">
-                                                    <option>Pilih Paket Anda</option>
+                                                <select class="form-control @error('paket') is-invalid @enderror" name="paket" value="{{ old('paket',$data_kliens->paket) }}">
+                                                    <option disabled>Pilih Paket Anda</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -145,10 +142,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group mb-3">
+                                            <div class="form-group">
                                                 <label class="font-weight-bold">Kelamin</label>
-                                                <select class="form-control  @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" value="{{ old('jenis_kelamin') }}">
-                                                    <option>Pilih Jenis Kelamin</option>
+                                                <select class="form-control  @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" value="{{ old('jenis_kelamin',$data_kliens->jenis_kelamin) }}">
+                                                    <option disabled>Pilih Jenis Kelamin</option>
                                                     <option value="Laki-Laki">Laki-Laki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                                 </select>
@@ -163,21 +160,22 @@
                                         </div>
                                     </div>
 
+                                    <div class="d-flex container mt-3 pb-4 justify-content-end">
+                                        <button type="submit" class="btn btn-md btn-primary me-3">SAVE</button>
+                                        <button type="reset" class="btn btn-md btn-danger">RESET</button>
 
-                                        <div class="d-flex container mt-3 pb-4 justify-content-end">
-                                                <button type="submit" class="btn btn-lg btn-custom">SIMPAN</button>
-                                            {{-- <button type="reset" class="btn btn-md btn-warning">RESET</button> --}}
-                                        </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    {{-- <script>
+        CKEDITOR.replace( 'description' );
+    </script> --}}
+
+</body>
 </html>

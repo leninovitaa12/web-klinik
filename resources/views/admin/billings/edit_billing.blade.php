@@ -50,25 +50,25 @@
                                             EDIT BILLING
                                         </h1>
                                     </div>
-                                    <form action="{{ route('admin.update', $client->id) }}" method="POST">
+                                    <form action="{{ route('admin.billings.proses_edit', $billing->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
                                             <!-- Hidden Input for Uneditable Fields -->
-                                            <input type="hidden" name="nik" value="{{ $client->dataKlien->nik }}">
-                                            <input type="hidden" name="nama_wali" value="{{ $client->dataKlien->nama_wali }}">
-                                            <input type="hidden" name="alamat" value="{{ $client->dataKlien->alamat }}">
-                                            <input type="hidden" name="no_telepon" value="{{ $client->dataKlien->no_telepon }}">
-                                            <input type="hidden" name="paket" value="{{ $client->dataKlien->paket }}">
-                                            <input type="hidden" name="jenis_kelamin" value="{{ $client->dataKlien->jenis_kelamin }}">
+                                            <input type="hidden" name="nik" value="{{ $billing->dataKlien->nik }}">
+                                            <input type="hidden" name="nama_wali" value="{{ $billing->dataKlien->nama_wali }}">
+                                            <input type="hidden" name="alamat" value="{{ $billing->dataKlien->alamat }}">
+                                            <input type="hidden" name="no_telepon" value="{{ $billing->dataKlien->no_telepon }}">
+                                            <input type="hidden" name="paket" value="{{ $billing->dataKlien->paket }}">
+                                            <input type="hidden" name="jenis_kelamin" value="{{ $billing->dataKlien->jenis_kelamin }}">
                                         </div>
                                         <div class="row">
                                             <!-- Is Active -->
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label class="font-weight-bold">Is Active</label><br>
-                                                    <input type="radio" name="is_active" value="Aktif" {{ $client->is_active == 'Aktif' ? 'checked' : '' }}> Aktif<br>
-                                                    <input type="radio" name="is_active" value="Tidak Aktif" {{ $client->is_active == 'Tidak Aktif' ? 'checked' : '' }}> Tidak Aktif
+                                                    <input type="radio" name="is_active" value="Aktif" {{ $billing->is_active == 'Aktif' ? 'checked' : '' }}> Aktif<br>
+                                                    <input type="radio" name="is_active" value="Tidak Aktif" {{ $billing->is_active == 'Tidak Aktif' ? 'checked' : '' }}> Tidak Aktif
                                                 </div>
                                             </div>
 
@@ -76,8 +76,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <label class="font-weight-bold">Bill Status</label><br>
-                                                    <input type="radio" name="bill_status" value="Sudah Bayar" {{ $client->bill_status == 'Sudah Bayar' ? 'checked' : '' }}> Sudah Bayar<br>
-                                                    <input type="radio" name="bill_status" value="Belum Bayar" {{ $client->bill_status == 'Belum Bayar' ? 'checked' : '' }}> Belum Bayar
+                                                    <input type="radio" name="bill_status" value="Sudah Bayar" {{ $billing->bill_status == 'Sudah Bayar' ? 'checked' : '' }}> Sudah Bayar<br>
+                                                    <input type="radio" name="bill_status" value="Belum Bayar" {{ $billing->bill_status == 'Belum Bayar' ? 'checked' : '' }}> Belum Bayar
                                                 </div>
                                             </div>
                                         </div>

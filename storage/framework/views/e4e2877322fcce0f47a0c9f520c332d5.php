@@ -114,4 +114,4 @@
         </div>
     </nav>
 <?php endif; ?>
-<?php /**PATH D:\Program File\htdocs\1. FIX KLINIK WEB\Klinik_Insan_Permata\vendor\laravel\framework\src\Illuminate\Pagination/resources/views/tailwind.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\KLINIK INSAN PERMATA\1. FIX KLINIK WEB\Klinik_Insan_Permata\vendor\laravel\framework\src\Illuminate\Pagination\resources\views\tailwind.blade.php ENDPATH**/ ?>

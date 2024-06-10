@@ -17,9 +17,9 @@
             <h2>Halo.. Kami Siap Melayani!!</h2>
             <p>Dengan mengisi formulir janji temu ini, Anda akan mengefektifkan waktu Anda saat berkunjung ke Klinik Insan Permata.</p>
             <div class="button-group">
-                <a href="#" class="btn btn-primary">Jadwalkan Janji Temu</a>
-                <button id="whatsappButton" class="btn btn-secondary">Jadwalkan Janji Temu Via WhatsApp</button>
-                <button id="emailButton" class="btn btn-tertiary">Jadwalkan Janji Temu Via Email</button>
+                <a href="https://wa.me/6281914882893?text=Halo%2C%20saya%20ingin%20membuat%20janji%20temu%21" class="btn btn-primary">Jadwalkan Janji Temu</a>
+                <a href="https://wa.me/6281914882893?text=Halo%2C%20saya%20ingin%20membuat%20janji%20temu%21" id="whatsappButton" type="submit" class="btn btn-secondary">Jadwalkan Janji Temu Via WhatsApp</a>
+                <button id="emailButton" type="submit" class="btn btn-tertiary">Jadwalkan Janji Temu Via Email</button>
             </div>
         </div>
     </div>

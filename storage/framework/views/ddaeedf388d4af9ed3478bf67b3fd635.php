@@ -16,6 +16,8 @@
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- My CSS -->
 
 </head>
@@ -24,8 +26,6 @@
 
     <div class="d-flex">
         <?php echo $__env->make('layouts.bar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
 
         <div class="container" style="width: 75%; margin-left:24%;">
             <h1 class="mt-5">Billing Clients</h1>
@@ -36,7 +36,7 @@
                         <th>nik</th>
                         <th>Paket</th>
                         <th>Nominal</th>
-                        <th>Is Active</th>`
+                        <th>Is Active</th>
                         <th>Bill</th>
                         <th>Aksi</th>
                     </tr>
@@ -72,20 +72,20 @@
                             <td><?php echo e($client->is_active); ?></td>
                             <td><?php echo e($client->bill_status); ?></td>
                             <td>
-                                <a href="https://wa.me/<?php echo e($client->dataKlien->phone); ?>" class="btn btn-success"><i
-                                        class="fa fa-whatsapp"></i></a>
-                                <a href="<?php echo e(route('admin.billings.edit', $client->id)); ?>" class="btn btn-primary"><i
-                                        class="fa fa-info-circle"></i></a>
+                                <a href="https://wa.me/<?php echo e($client->dataKlien->phone); ?>" class="btn btn-success">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="<?php echo e(route('admin.billings.edit', $client->id)); ?>" class="btn btn-primary">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
-
     </div>
     <!--Import Sidebar-->
-
 
 </body>
 
